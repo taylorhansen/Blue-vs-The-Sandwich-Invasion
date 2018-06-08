@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
+[ext_resource path="res://player/hatbase.tga" type="Texture" id=2]
+[ext_resource path="res://player/hattop.tga" type="Texture" id=3]
+[ext_resource path="res://player/handrightidle.tga" type="Texture" id=4]
+[ext_resource path="res://player/handleftidle.tga" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -31,5 +35,30 @@ process_mode = 1
 wait_time = 0.3
 one_shot = true
 autostart = false
+
+[node name="hatbase" type="Sprite" parent="." index="3"]
+
+z_index = 1
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="hattop" type="Sprite" parent="." index="4"]
+
+position = Vector2( -5, 0 )
+z_index = 2
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="handrightidle" type="Sprite" parent="." index="5"]
+
+position = Vector2( 6, 14 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="handleftidle" type="Sprite" parent="." index="6"]
+
+position = Vector2( 6, -14 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 
