@@ -43,4 +43,5 @@ shoot_fireball=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"r
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

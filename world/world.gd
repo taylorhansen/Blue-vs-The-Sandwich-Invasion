@@ -5,7 +5,12 @@ const ENEMY = preload("res://enemies/enemy/Enemy.tscn")
 
 onready var player = $Player
 
-func _process(delta):
+var score = 0
+
+func _ready():
+    # initialize score label
+    _update_score()
+    
     # seed the random number generator
     randomize()
 
@@ -25,4 +30,12 @@ func _on_SpawnTimer_timeout():
     var enemy = ENEMY.instance()
     enemy.global_position = pos
     enemy.player = player
+    enemy.connect("fired", self, "_on_Enemy_fired")
     $Enemies.add_child(enemy)
+
+func _on_Enemy_fired():
+    score += 1
+    _update_score()
+
+func _update_score():
+    $Score.text = "Score: " + str(score)
