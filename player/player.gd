@@ -28,7 +28,6 @@ func _process(delta):
         
         # set the fireball's velocity to the current direction scaled by the
         #  fireball speed
-        #fireball.look_at(get_global_mouse_position())
         fireball.global_transform = Transform2D(get_global_transform())
         fireball.global_position = Vector2(global_position)
         fireball.speed = FIREBALL_SPEED

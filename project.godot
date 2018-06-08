@@ -14,6 +14,10 @@ config/name="New Game Project"
 run/main_scene="res://world/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://global/global.gd"
+
 [display]
 
 window/stretch/mode="viewport"
