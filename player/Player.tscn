@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/player.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.0
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+MOVEMENT_SPEED = 100
+FIREBALL_SPEED = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Fireballs" type="Node" parent="." index="1"]
+
+[node name="FireballCooldown" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
+
+
