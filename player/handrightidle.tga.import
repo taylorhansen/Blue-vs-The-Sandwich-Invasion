@@ -10,7 +10,7 @@ source_file="res://player/handrightidle.tga"
 source_md5="17b2f0c0f8d56b0e6b8af33884f624b4"
 
 dest_files=[ "res://.import/handrightidle.tga-b2e1cbf94018ad8c9815bbc5a7660c96.stex" ]
-dest_md5="7128233d66f44c7be5ed4d3dec1fd87e"
+dest_md5="fa1607b3695fba60852aefe5ffc80cba"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

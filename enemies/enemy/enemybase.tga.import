@@ -10,7 +10,7 @@ source_file="res://enemies/enemy/enemybase.tga"
 source_md5="88fec661ca9423abdc689f7355dffd06"
 
 dest_files=[ "res://.import/enemybase.tga-2f437e218a72174c2cfc9af7c7fc5f2e.stex" ]
-dest_md5="a2dcd53b6ac71a2795f58242a18b5fa8"
+dest_md5="3506c5a1233377733ab08136cda632f7"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

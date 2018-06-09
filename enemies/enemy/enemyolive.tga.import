@@ -10,7 +10,7 @@ source_file="res://enemies/enemy/enemyolive.tga"
 source_md5="b732dc0bef21566f87ee3b700f2f7837"
 
 dest_files=[ "res://.import/enemyolive.tga-deda14065850846da0b77627e875253d.stex" ]
-dest_md5="5798b180474461b934654636663a9096"
+dest_md5="39043eb44263e726b4642625f7e15477"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

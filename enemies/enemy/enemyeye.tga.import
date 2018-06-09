@@ -10,7 +10,7 @@ source_file="res://enemies/enemy/enemyeye.tga"
 source_md5="aeb9d460b6e92c18bbfc1cee4d1785b9"
 
 dest_files=[ "res://.import/enemyeye.tga-42e5fded4a47eeeaa8cc6adf59ba1ef1.stex" ]
-dest_md5="9ae93aacdb42b2d1b221553ddefb9d04"
+dest_md5="a1355e84f993f4741147b23111bbf9cf"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

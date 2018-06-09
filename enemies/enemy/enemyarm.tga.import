@@ -10,7 +10,7 @@ source_file="res://enemies/enemy/enemyarm.tga"
 source_md5="86de480ebb67161fed456e0d4a1e8739"
 
 dest_files=[ "res://.import/enemyarm.tga-5978b279f4e6b0b8c3601ba9bc0c377d.stex" ]
-dest_md5="b461036cfc78a49d096defb8e32e77d1"
+dest_md5="a2a17f7f6e309af34d894cf548eee64b"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

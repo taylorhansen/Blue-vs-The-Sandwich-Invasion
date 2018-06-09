@@ -10,7 +10,7 @@ source_file="res://player/hatbase.tga"
 source_md5="2663046d37dea2847e54481a3cc319f0"
 
 dest_files=[ "res://.import/hatbase.tga-f9877c809abb7e7d6e86aa9801bb0a39.stex" ]
-dest_md5="9c1f6b21cacb667d51f5bc1aa45bcfbb"
+dest_md5="de7eea2f88c6670e37e00da647ff19be"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
