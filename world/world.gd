@@ -55,8 +55,8 @@ func _on_Player_hit(enemy):
     _update_lives()
     $Screen.shake()
     if lives <= 0:
-        # TODO: game over
-        pass
+        # game over sequence
+        get_tree().paused = true
 
 func _on_Enemy_fired():
     """
