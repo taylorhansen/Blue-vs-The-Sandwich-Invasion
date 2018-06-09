@@ -11,13 +11,19 @@ func _ready():
     # initialize score label
     _update_score()
     
+    # update the lives counter
+    _update_lives()
+    
     # seed the random number generator
     randomize()
 
 func _on_SpawnTimer_timeout():
-    # spawn an enemy on the perimeter of the viewport
-    var bounds = get_viewport().size
+    # spawn an enemy
+    var enemy = ENEMY.instance()
+    
+    # set its position along the perimeter of the viewport
     var pos
+    var bounds = get_viewport().size
     var side = randi() % 4
     if side == 0: # top
         pos = Vector2(rand_range(0, bounds.x), 0)
@@ -27,15 +33,31 @@ func _on_SpawnTimer_timeout():
         pos = Vector2(rand_range(0, bounds.x), bounds.y)
     elif side == 3: # left
         pos = Vector2(bounds.x, rand_range(0, bounds.y))
-    var enemy = ENEMY.instance()
     enemy.global_position = pos
+    
+    # other initialization
     enemy.player = player
     enemy.connect("fired", self, "_on_Enemy_fired")
     $Enemies.add_child(enemy)
 
 func _on_Enemy_fired():
+    """
+    Called when an enemy is "fired" or killed.
+    """
+    # increment score
     score += 1
+    
+    # update score label
     _update_score()
 
 func _update_score():
-    $Score.text = "Score: " + str(score)
+    """
+    Updates the score indicator in the HUD.
+    """
+    $HUD/Score.text = "Score: " + str(score)
+
+func _update_lives():
+    """
+    Updates the life indicator in the HUD.
+    """
+    $HUD/Lives/Label2.text = "x" + str(player.lives)

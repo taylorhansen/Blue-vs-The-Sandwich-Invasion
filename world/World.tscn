@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://world/world.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/hatbase.tga" type="Texture" id=3]
+[ext_resource path="res://player/hattop.tga" type="Texture" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -27,7 +29,7 @@ custom_solver_bias = 0.0
 a = Vector2( 0, 0 )
 b = Vector2( 1024, 0 )
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -70,7 +72,70 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
-[node name="Score" type="Label" parent="." index="3"]
+[node name="HUD" type="CanvasLayer" parent="." index="3"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Lives" type="Node2D" parent="HUD" index="0"]
+
+position = Vector2( 0, 568 )
+
+[node name="Label" type="Label" parent="HUD/Lives" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 60.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Lives:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HatBase" type="Sprite" parent="HUD/Lives" index="1"]
+
+position = Vector2( 76, 5 )
+rotation = -1.5708
+texture = ExtResource( 3 )
+
+[node name="HatTop" type="Sprite" parent="HUD/Lives" index="2"]
+
+position = Vector2( 76, 10 )
+rotation = -1.5708
+texture = ExtResource( 4 )
+
+[node name="Label2" type="Label" parent="HUD/Lives" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 95.0
+margin_right = 135.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Score" type="Label" parent="HUD" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0

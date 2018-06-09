@@ -12,10 +12,6 @@ export(float) var FIREBALL_SPEED = 500
 # amount of lives the player has
 var lives = 3
 
-func _ready():
-    # update the lives counter
-    _update_lives()
-
 func _process(delta):
     # move around
     var velocity = MOVEMENT_SPEED * \
@@ -55,9 +51,3 @@ func _get_vertical_input():
     """
     return int(Input.is_action_pressed("move_down")) - \
         int(Input.is_action_pressed("move_up"))
-
-func _update_lives():
-    """
-    Updates the life indicator in the HUD.
-    """
-    $HUD/Lives/Label2.text = "x" + str(lives)
