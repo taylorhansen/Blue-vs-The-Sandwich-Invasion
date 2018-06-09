@@ -1,4 +1,7 @@
-extends KinematicBody2D
+extends Area2D
+
+# emitted when hit by an enemy
+signal hit(enemy)
 
 # fireball scene
 const FIREBALL = preload("res://fireball/Fireball.tscn")
@@ -9,14 +12,16 @@ export(float) var MOVEMENT_SPEED = 100
 # fireball speed in pixels/second
 export(float) var FIREBALL_SPEED = 500
 
-# amount of lives the player has
-var lives = 3
-
 func _process(delta):
     # move around
     var velocity = MOVEMENT_SPEED * \
         Vector2(_get_horizontal_input(), _get_vertical_input())
-    move_and_slide(velocity)
+    transform.origin += velocity * delta
+    
+    # clamp position within the boundaries
+    var bounds = get_viewport_rect().size
+    transform.origin.x = clamp(transform.origin.x, 0, bounds.x)
+    transform.origin.y = clamp(transform.origin.y, 0, bounds.y)
     
     # rotate towards the position of the mouse
     look_at(get_global_mouse_position())
@@ -51,3 +56,10 @@ func _get_vertical_input():
     """
     return int(Input.is_action_pressed("move_down")) - \
         int(Input.is_action_pressed("move_up"))
+
+func _on_area_entered(area):
+    """
+    Called when another area collides with this one.
+    """
+    if area.is_in_group("enemies"):
+        emit_signal("hit", area)

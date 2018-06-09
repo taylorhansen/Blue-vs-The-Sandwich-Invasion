@@ -1,33 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://world/world.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/hatbase.tga" type="Texture" id=3]
 [ext_resource path="res://player/hattop.tga" type="Texture" id=4]
-
-[sub_resource type="SegmentShape2D" id=1]
-
-custom_solver_bias = 0.0
-a = Vector2( 1024, 0 )
-b = Vector2( 1024, 600 )
-
-[sub_resource type="SegmentShape2D" id=2]
-
-custom_solver_bias = 0.0
-a = Vector2( 0, 0 )
-b = Vector2( 0, 600 )
-
-[sub_resource type="SegmentShape2D" id=3]
-
-custom_solver_bias = 0.0
-a = Vector2( 0, 600 )
-b = Vector2( 1024, 600 )
-
-[sub_resource type="SegmentShape2D" id=4]
-
-custom_solver_bias = 0.0
-a = Vector2( 0, 0 )
-b = Vector2( 1024, 0 )
 
 [node name="World" type="Node" index="0"]
 
@@ -37,33 +13,7 @@ script = ExtResource( 1 )
 
 position = Vector2( 512, 300 )
 
-[node name="Walls" type="StaticBody2D" parent="." index="1"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Right" type="CollisionShape2D" parent="Walls" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Left" type="CollisionShape2D" parent="Walls" index="1"]
-
-shape = SubResource( 2 )
-
-[node name="Down" type="CollisionShape2D" parent="Walls" index="2"]
-
-shape = SubResource( 3 )
-
-[node name="Up" type="CollisionShape2D" parent="Walls" index="3"]
-
-shape = SubResource( 4 )
-
-[node name="Enemies" type="Node" parent="." index="2"]
+[node name="Enemies" type="Node" parent="." index="1"]
 
 [node name="SpawnTimer" type="Timer" parent="Enemies" index="0"]
 
@@ -72,7 +22,7 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
-[node name="HUD" type="CanvasLayer" parent="." index="3"]
+[node name="HUD" type="CanvasLayer" parent="." index="2"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -152,6 +102,8 @@ size_flags_vertical = 4
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 
 [connection signal="timeout" from="Enemies/SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 

@@ -16,10 +16,8 @@ func _process(delta):
     var direction = (player.global_position - global_position).normalized()
     global_position += MOVEMENT_SPEED * delta * direction
 
-
 func _on_fired():
     """
     Called when being hit by a fireball.
     """
-    # destroy this enemy
     queue_free()

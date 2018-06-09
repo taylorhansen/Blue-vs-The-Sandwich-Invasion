@@ -11,14 +11,18 @@
 custom_solver_bias = 0.0
 radius = 16.0
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="Area2D" groups=[
 "player",
 ]]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitorable = false
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 MOVEMENT_SPEED = 100
 FIREBALL_SPEED = 500
@@ -56,5 +60,7 @@ texture = ExtResource( 4 )
 
 position = Vector2( 6, -14 )
 texture = ExtResource( 5 )
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 
 

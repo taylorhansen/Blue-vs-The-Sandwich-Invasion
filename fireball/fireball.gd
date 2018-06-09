@@ -21,12 +21,3 @@ func _on_area_entered(area):
         
         # destroy the fireball
         queue_free()
-
-func _on_body_entered(body):
-    """
-    Called when hitting a body.
-    """
-    # make sure we're not actually hitting the player
-    if not body.is_in_group("player"):
-        # destroy the fireball
-        queue_free()

@@ -5,7 +5,11 @@ const ENEMY = preload("res://enemies/enemy/Enemy.tscn")
 
 onready var player = $Player
 
+# current score
 var score = 0
+
+# amount of lives the player has
+var lives = 3
 
 func _ready():
     # initialize score label
@@ -40,6 +44,17 @@ func _on_SpawnTimer_timeout():
     enemy.connect("fired", self, "_on_Enemy_fired")
     $Enemies.add_child(enemy)
 
+func _on_Player_hit(enemy):
+    """
+    Called when the player is hit and loses a life.
+    """
+    enemy.queue_free()
+    lives -= 1
+    _update_lives()
+    if lives <= 0:
+        # TODO: game over
+        pass
+
 func _on_Enemy_fired():
     """
     Called when an enemy is "fired" or killed.
@@ -60,4 +75,4 @@ func _update_lives():
     """
     Updates the life indicator in the HUD.
     """
-    $HUD/Lives/Label2.text = "x" + str(player.lives)
+    $HUD/Lives/Label2.text = "x" + str(lives)
