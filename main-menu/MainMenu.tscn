@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://main-menu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://main-menu/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/8-bit-wonder.tres" type="DynamicFont" id=2]
 
 [node name="MainMenu" type="Control"]
 
@@ -34,7 +35,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-_sections_unfolded = [ "Rect" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" index="0"]
 
@@ -68,13 +68,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
 text = "GAME"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Start" type="Button" parent="VBoxContainer" index="1"]
 
@@ -92,6 +92,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -99,7 +100,6 @@ group = null
 text = "Start"
 flat = false
 align = 1
-_sections_unfolded = [ "Grow Direction", "Rect" ]
 
 [node name="Quit" type="Button" parent="VBoxContainer" index="2"]
 
@@ -117,6 +117,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -124,7 +125,6 @@ group = null
 text = "Quit"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
 

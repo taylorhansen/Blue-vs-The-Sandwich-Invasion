@@ -56,7 +56,8 @@ func _on_Player_hit(enemy):
     $Screen.shake()
     if lives <= 0:
         # game over sequence
-        get_tree().change_scene("res://main-menu/MainMenu.tscn")
+        $GameOver.popup_centered()
+        get_tree().paused = true
 
 func _on_Enemy_fired():
     """
@@ -79,3 +80,17 @@ func _update_lives():
     Updates the life indicator in the HUD.
     """
     $HUD/Lives/LifeCounter.text = str(lives)
+
+func _on_Quit_pressed():
+    """
+    Called when clicking the Quit button.
+    """
+    get_tree().change_scene("res://main-menu/MainMenu.tscn")
+    get_tree().paused = false
+
+func _on_Restart_pressed():
+    """
+    Called when clicking the restart button.
+    """
+    get_tree().change_scene("res://world/World.tscn")
+    get_tree().paused = false
