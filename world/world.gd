@@ -56,7 +56,7 @@ func _on_Player_hit(enemy):
     $Screen.shake()
     if lives <= 0:
         # game over sequence
-        get_tree().paused = true
+        get_tree().change_scene("res://main-menu/MainMenu.tscn")
 
 func _on_Enemy_fired():
     """
@@ -78,4 +78,4 @@ func _update_lives():
     """
     Updates the life indicator in the HUD.
     """
-    $HUD/Lives/Label2.text = "x" + str(lives)
+    $HUD/Lives/LifeCounter.text = str(lives)
