@@ -11,10 +11,11 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Enemy" type="Area2D" groups=[
+[node name="Enemy" type="Area2D" index="0" groups=[
 "enemies",
 ]]
 
+z_index = -2
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -24,6 +25,7 @@ monitoring = false
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 MOVEMENT_SPEED = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]

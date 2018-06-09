@@ -8,7 +8,7 @@
 [ext_resource path="res://world/LIVES.tga" type="Texture" id=6]
 [ext_resource path="res://world/camera.gd" type="Script" id=7]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 
