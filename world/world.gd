@@ -51,6 +51,7 @@ func _on_Player_hit(enemy):
     enemy.queue_free()
     lives -= 1
     _update_lives()
+    $Screen.shake()
     if lives <= 0:
         # TODO: game over
         pass
