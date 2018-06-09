@@ -12,6 +12,9 @@ export(float) var MOVEMENT_SPEED = 100
 # fireball speed in pixels/second
 export(float) var FIREBALL_SPEED = 500
 
+func _ready():
+    $HatAnimation.play("Hat")
+
 func _process(delta):
     # move around
     var velocity = MOVEMENT_SPEED * \
@@ -23,25 +26,14 @@ func _process(delta):
     transform.origin.x = clamp(transform.origin.x, 0, bounds.x)
     transform.origin.y = clamp(transform.origin.y, 0, bounds.y)
     
-    # rotate towards the position of the mouse
+    # face towards the mouse
     look_at(get_global_mouse_position())
     
     # shoot a fireball
-    # this can only happen if the cooldown timer is over
+    # this can only happen if the fireball shooting animation is over
     if Input.is_action_pressed("shoot_fireball") and \
-        $FireballCooldown.is_stopped():
-        # create a new fireball
-        var fireball = FIREBALL.instance()
-        $Fireballs.add_child(fireball)
-        
-        # set the fireball's velocity to the current direction scaled by the
-        #  fireball speed
-        fireball.global_transform = Transform2D(get_global_transform())
-        fireball.global_position = Vector2(global_position)
-        fireball.speed = FIREBALL_SPEED
-        
-        # restart the cooldown timer
-        $FireballCooldown.start()
+        not $HandAnimation.is_playing():
+        $HandAnimation.play("ShootFireball")
 
 func _get_horizontal_input():
     """
@@ -56,6 +48,16 @@ func _get_vertical_input():
     """
     return int(Input.is_action_pressed("move_down")) - \
         int(Input.is_action_pressed("move_up"))
+
+func shoot_fireball():
+    """
+    Causes the player to shoot a fireball. Called by HandAnimation.
+    """
+    var fireball = FIREBALL.instance()
+    fireball.global_transform = global_transform
+    fireball.global_position = global_position
+    fireball.speed = FIREBALL_SPEED
+    $Fireballs.add_child(fireball)
 
 func _on_area_entered(area):
     """

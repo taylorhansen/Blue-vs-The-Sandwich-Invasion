@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/hatbase.tga" type="Texture" id=2]
 [ext_resource path="res://player/hattop.tga" type="Texture" id=3]
 [ext_resource path="res://player/handrightidle.tga" type="Texture" id=4]
 [ext_resource path="res://player/handleftidle.tga" type="Texture" id=5]
+[ext_resource path="res://player/animations/Hat.tres" type="Animation" id=6]
+[ext_resource path="res://player/animations/ShootFireball.tres" type="Animation" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -33,33 +35,47 @@ shape = SubResource( 1 )
 
 [node name="Fireballs" type="Node" parent="." index="1"]
 
-[node name="FireballCooldown" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 0.3
-one_shot = true
-autostart = false
-
-[node name="HatBase" type="Sprite" parent="." index="3"]
+[node name="HatBase" type="Sprite" parent="." index="2"]
 
 z_index = 1
 texture = ExtResource( 2 )
 
-[node name="HatTop" type="Sprite" parent="." index="4"]
+[node name="HatTop" type="Sprite" parent="." index="3"]
 
 position = Vector2( -5, 0 )
 z_index = 2
 texture = ExtResource( 3 )
 
-[node name="HandRight" type="Sprite" parent="." index="5"]
+[node name="HandRight" type="Sprite" parent="." index="4"]
 
 position = Vector2( 6, 14 )
 texture = ExtResource( 4 )
 
-[node name="HandLeft" type="Sprite" parent="." index="6"]
+[node name="HandLeft" type="Sprite" parent="." index="5"]
 
 position = Vector2( 6, -14 )
 texture = ExtResource( 5 )
+
+[node name="HatAnimation" type="AnimationPlayer" parent="." index="6"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Hat = ExtResource( 6 )
+blend_times = [  ]
+_sections_unfolded = [ "playback" ]
+
+[node name="HandAnimation" type="AnimationPlayer" parent="." index="7"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/ShootFireball = ExtResource( 7 )
+blend_times = [  ]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 
