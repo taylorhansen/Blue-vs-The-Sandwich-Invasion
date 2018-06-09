@@ -3,6 +3,8 @@ extends Node
 # enemy scene
 const ENEMY = preload("res://enemies/enemy/Enemy.tscn")
 
+const SCORE_PER_ENEMY = 25
+
 onready var player = $Player
 
 # current score
@@ -61,7 +63,7 @@ func _on_Enemy_fired():
     Called when an enemy is "fired" or killed.
     """
     # increment score
-    score += 1
+    score += SCORE_PER_ENEMY
     
     # update score label
     _update_score()
