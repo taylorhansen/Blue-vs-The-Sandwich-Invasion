@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/enemy/enemy.gd" type="Script" id=1]
+[ext_resource path="res://enemies/enemy/enemybase.tga" type="Texture" id=2]
+[ext_resource path="res://enemies/enemy/enemyarm.tga" type="Texture" id=3]
+[ext_resource path="res://enemies/enemy/enemyeye.tga" type="Texture" id=4]
+[ext_resource path="res://enemies/enemy/enemyolive.tga" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Enemy" type="Area2D" groups=[
+[node name="Enemy" type="Area2D" index="0" groups=[
 "enemies",
 ]]
 
@@ -25,6 +29,44 @@ MOVEMENT_SPEED = 100
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
+
+[node name="Base" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+
+[node name="ArmLeft" type="Sprite" parent="." index="2"]
+
+position = Vector2( 4, -15 )
+rotation = 1.5708
+z_index = 1
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="ArmRight" type="Sprite" parent="." index="3"]
+
+position = Vector2( 4, 15 )
+rotation = 1.5708
+scale = Vector2( -1, 1 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="EyeLeft" type="Sprite" parent="." index="4"]
+
+position = Vector2( 7, -7 )
+z_index = 2
+texture = ExtResource( 4 )
+
+[node name="EyeRight" type="Sprite" parent="." index="5"]
+
+position = Vector2( 7, 7 )
+z_index = 2
+texture = ExtResource( 4 )
+
+[node name="Olive" type="Sprite" parent="." index="6"]
+
+position = Vector2( -6, 0 )
+z_index = 2
+texture = ExtResource( 5 )
 
 [connection signal="fired" from="." to="." method="_on_fired"]
 
