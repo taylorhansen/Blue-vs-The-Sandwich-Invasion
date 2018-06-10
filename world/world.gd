@@ -59,14 +59,14 @@ func _update_score():
     """
     Updates the score indicator in the HUD.
     """
-    $HUD/Score.text = "Score: " + str(score)
+    $HUD/TopPanel/Score.text = "Score: " + str(score)
 
 func _update_wave():
     """
     Updates the wave indicator in the HUD. Called when the current wave is
     changed in the Enemies node.
     """
-    $HUD/Wave.text = "Wave: " + str($Enemies.wave)
+    $HUD/TopPanel/Wave.text = "Wave: " + str($Enemies.wave)
 
 func _update_lives():
     """
