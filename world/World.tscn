@@ -10,7 +10,7 @@
 [ext_resource path="res://world/background.png" type="Texture" id=8]
 [ext_resource path="res://world/camera.gd" type="Script" id=9]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 POINTS_PER_SANDWICH = 25

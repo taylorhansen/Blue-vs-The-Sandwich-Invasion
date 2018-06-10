@@ -10,20 +10,41 @@ const FIREBALL = preload("res://fireball/Fireball.tscn")
 # right now just a 32px margin on all sides
 const BOUNDS = Rect2(Vector2(32, 32), Vector2(480, 480))
 
+# initial dash speed in pixels/second
+const DASH_SPEED = 500
+
+# deceleration of dash in pixels/second/second
+const DASH_DECAY = 1000
+
 # player movement speed in pixels/second
 export(float) var MOVEMENT_SPEED = 100
 
 # fireball speed in pixels/second
 export(float) var FIREBALL_SPEED = 500
 
+var _velocity = Vector2()
+var _is_dashing = false
+
 func _ready():
     $HatAnimation.play("Hat")
 
 func _process(delta):
     # move around
-    var velocity = MOVEMENT_SPEED * \
-        Vector2(_get_horizontal_input(), _get_vertical_input())
-    transform.origin += velocity * delta
+    if not _is_dashing:
+        # can use arrow keys
+        _velocity = MOVEMENT_SPEED * \
+            Vector2(_get_horizontal_input(), _get_vertical_input())
+    
+    transform.origin += _velocity * delta
+    
+    if _is_dashing:
+        # decay the dash velocity
+        print(_velocity)
+        _velocity = _velocity.normalized() * (_velocity.length() - DASH_DECAY * delta)
+        if _velocity.length() < MOVEMENT_SPEED:
+            # once it gets back down to movement speed, we're no longer dashing
+            _is_dashing = false
+            $DashCooldown.start()
     
     # clamp position within the boundaries
     transform.origin.x = clamp(transform.origin.x, BOUNDS.position.x, \
@@ -39,6 +60,20 @@ func _process(delta):
     if Input.is_action_pressed("shoot_fireball") and \
         not $HandAnimation.is_playing():
         $HandAnimation.play("ShootFireball")
+
+func _input(event):
+    if event.is_action_pressed("dash") and _can_dash():
+        _dash()
+
+func _on_area_entered(area):
+    """
+    Called when another area collides with this one.
+    """
+    if area.is_in_group("enemies"):
+        # player was hit by an enemy
+        emit_signal("hit")
+        # enemy also dies as a result
+        area.emit_signal("dead")
 
 func _get_horizontal_input():
     """
@@ -64,12 +99,16 @@ func shoot_fireball():
     fireball.speed = FIREBALL_SPEED
     $Fireballs.add_child(fireball)
 
-func _on_area_entered(area):
+func _can_dash():
     """
-    Called when another area collides with this one.
+    Checks whether or not the player is able to dash.
     """
-    if area.is_in_group("enemies"):
-        # player was hit by an enemy
-        emit_signal("hit")
-        # enemy also dies as a result
-        area.emit_signal("dead")
+    return not _is_dashing and $DashCooldown.is_stopped()
+
+func _dash():
+    """
+    Performs a dash.
+    """
+    # set an impulse for the dash
+    _velocity = DASH_SPEED * transform.x.normalized()
+    _is_dashing = true
