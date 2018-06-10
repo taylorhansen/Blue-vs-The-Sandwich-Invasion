@@ -60,15 +60,14 @@ func _process(delta):
     
     # face towards the mouse
     look_at(get_global_mouse_position())
-    
+
+func _input(event):
     # shoot a fireball
     # this can only happen if the fireball shooting animation is over
     if Input.is_action_pressed("shoot_fireball") and \
         not $HandAnimation.is_playing():
         $HandAnimation.play("ShootFireball")
-
-func _input(event):
-    if event.is_action_pressed("dash") and _can_dash():
+    elif event.is_action_pressed("dash") and _can_dash():
         _dash()
 
 func _on_area_entered(area):
@@ -95,7 +94,7 @@ func _get_vertical_input():
     return int(Input.is_action_pressed("move_down")) - \
         int(Input.is_action_pressed("move_up"))
 
-func shoot_fireball():
+func _shoot_fireball():
     """
     Causes the player to shoot a fireball. Called by HandAnimation.
     """
