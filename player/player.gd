@@ -3,8 +3,14 @@ extends Area2D
 # emitted when hit by an enemy
 signal hit()
 
-# fireball scene
 const FIREBALL = preload("res://fireball/Fireball.tscn")
+const FIREBALL_SOUNDS = [
+    preload("res://sounds/Explosion1.wav"),
+    preload("res://sounds/Explosion2.wav"),
+    preload("res://sounds/Explosion3.wav"),
+    preload("res://sounds/Explosion4.wav"),
+    preload("res://sounds/Explosion5.wav")
+]
 
 # bounding rectangle that the player can move in
 # right now just a 32px margin on all sides
@@ -98,6 +104,10 @@ func shoot_fireball():
     fireball.global_position = global_position
     fireball.speed = FIREBALL_SPEED
     $Fireballs.add_child(fireball)
+    
+    # play a random fireball sound
+    $FireballSound.stream = FIREBALL_SOUNDS[randi() % FIREBALL_SOUNDS.size()]
+    $FireballSound.play()
 
 func _can_dash():
     """

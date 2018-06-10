@@ -1,5 +1,14 @@
 extends Node
 
+# sounds
+const PLAYER_DEATH = preload("res://sounds/Death.wav")
+const PLAYER_HIT = preload("res://sounds/Hit_Hurt.wav")
+const ENEMY_HIT = [
+    preload("res://sounds/EnemyHit1.wav"),
+    preload("res://sounds/EnemyHit2.wav"),
+    preload("res://sounds/EnemyHit3.wav")
+]
+
 export(int) var POINTS_PER_SANDWICH = 25
 
 var score = 0
@@ -23,8 +32,16 @@ func _on_Player_hit():
     _update_lives()
     $Screen.shake()
     if lives <= 0:
+        # play death sound
+        $PlayerHit.stream = PLAYER_DEATH
+        
         # game over sequence
         _game_over()
+    else:
+        # just play the regular hit sound
+        $PlayerHit.stream = PLAYER_HIT
+    
+    $PlayerHit.play()
 
 func _on_Sandwich_fired():
     """
@@ -35,6 +52,10 @@ func _on_Sandwich_fired():
     
     # update score label
     _update_score()
+    
+    # play a random enemy hit sound
+    $EnemyHit.stream = ENEMY_HIT[randi() % ENEMY_HIT.size()]
+    $EnemyHit.play()
 
 func _on_Quit_pressed():
     """
@@ -49,6 +70,18 @@ func _on_Restart_pressed():
     """
     get_tree().change_scene("res://world/World.tscn")
     get_tree().paused = false
+
+func _play_select():
+    """
+    Called when a button is clicked.
+    """
+    global.play_select()
+
+func _play_hover():
+    """
+    Called when a button is hovered over.
+    """
+    global.play_hover()
 
 func _game_over():
     """

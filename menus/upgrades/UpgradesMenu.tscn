@@ -182,7 +182,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[connection signal="mouse_entered" from="VBoxContainer/DashContainer/BuyDash" to="." method="_play_hover"]
+
+[connection signal="pressed" from="VBoxContainer/DashContainer/BuyDash" to="." method="_play_select"]
+
 [connection signal="pressed" from="VBoxContainer/DashContainer/BuyDash" to="." method="_on_BuyDash_pressed"]
+
+[connection signal="mouse_entered" from="VBoxContainer/BackContainer/Back" to="." method="_play_hover"]
+
+[connection signal="pressed" from="VBoxContainer/BackContainer/Back" to="." method="_play_select"]
 
 [connection signal="pressed" from="VBoxContainer/BackContainer/Back" to="." method="_on_Back_pressed"]
 

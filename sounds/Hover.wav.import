@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hover.wav-f7d6fb347a924a32fa96fd4025dc69dc.sample"
+
+[deps]
+
+source_file="res://sounds/Hover.wav"
+source_md5="9afc7669b0d6ca610bb5bc7324fd6d34"
+
+dest_files=[ "res://.import/Hover.wav-f7d6fb347a924a32fa96fd4025dc69dc.sample" ]
+dest_md5="e464179e5662454116c71f63af801e5d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

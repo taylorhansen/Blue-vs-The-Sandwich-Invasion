@@ -1,10 +1,16 @@
 extends Node
 
+# globally available sounds
+const SELECT = preload("res://sounds/Blip_Select.wav")
+const HOVER = preload("res://sounds/Hover.wav")
+
 const SAVE_PATH = "user://save.json"
 const DEFAULT_DATA = { "points": 0, "upgrades": { "dash": false } }
 var _save_data = _load_save()
 
 var points setget set_points, get_points
+
+onready var audio = AudioStreamPlayer.new()
 
 func set_points(new_points):
     """
@@ -43,8 +49,20 @@ func reset_data():
     """
     _save_data = DEFAULT_DATA
 
+func play_select():
+    audio.stream = SELECT
+    audio.play()
+
+func play_hover():
+    audio.stream = HOVER
+    audio.play()
+
 func _ready():
     randomize()
+    
+    # initialize audio stream player
+    audio.volume_db = -10
+    add_child(audio)
 
 func _notification(what):
     # save data before quitting

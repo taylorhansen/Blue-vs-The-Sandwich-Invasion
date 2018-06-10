@@ -10,7 +10,7 @@
 [ext_resource path="res://world/background.png" type="Texture" id=8]
 [ext_resource path="res://world/camera.gd" type="Script" id=9]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 POINTS_PER_SANDWICH = 25
@@ -519,13 +519,55 @@ wait_time = 0.01
 one_shot = false
 autostart = false
 
+[node name="MenuSounds" type="AudioStreamPlayer" parent="." index="7"]
+
+pause_mode = 2
+stream = null
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="." index="8"]
+
+pause_mode = 2
+stream = null
+volume_db = -5.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = null
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="mouse_entered" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_hover"]
+
 [connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_select"]
+
+[connection signal="mouse_entered" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_hover"]
 
 [connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_select"]
+
+[connection signal="mouse_entered" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_hover"]
+
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_select"]
+
+[connection signal="mouse_entered" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_hover"]
+
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_select"]
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 

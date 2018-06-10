@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/EnemyHit3.wav-f6e7dc9ccd7d097e094837ce3cabcc32.sample"
+
+[deps]
+
+source_file="res://sounds/EnemyHit3.wav"
+source_md5="c3c6d182c9358f053b6593e2c0e77953"
+
+dest_files=[ "res://.import/EnemyHit3.wav-f6e7dc9ccd7d097e094837ce3cabcc32.sample" ]
+dest_md5="aea6335abe07e1ae7c99f3fbfb4de158"
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

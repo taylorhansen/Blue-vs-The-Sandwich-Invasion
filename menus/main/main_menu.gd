@@ -30,6 +30,18 @@ func _on_ResetData_pressed():
     global.save_data()
     _update_points()
 
+func _play_select():
+    """
+    Called when a button is clicked.
+    """
+    global.play_select()
+
+func _play_hover():
+    """
+    Called when a button is hovered over.
+    """
+    global.play_hover()
+
 func _update_points():
     """
     Updates the points label.

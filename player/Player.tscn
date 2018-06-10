@@ -84,6 +84,14 @@ wait_time = 0.3
 one_shot = true
 autostart = false
 
+[node name="FireballSound" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = null
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 
 
