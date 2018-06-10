@@ -6,6 +6,10 @@ signal hit()
 # fireball scene
 const FIREBALL = preload("res://fireball/Fireball.tscn")
 
+# bounding rectangle that the player can move in
+# right now just a 32px margin on all sides
+const BOUNDS = Rect2(Vector2(32, 32), Vector2(480, 480))
+
 # player movement speed in pixels/second
 export(float) var MOVEMENT_SPEED = 100
 
@@ -22,9 +26,10 @@ func _process(delta):
     transform.origin += velocity * delta
     
     # clamp position within the boundaries
-    var bounds = get_viewport_rect().size
-    transform.origin.x = clamp(transform.origin.x, 0, bounds.x)
-    transform.origin.y = clamp(transform.origin.y, 0, bounds.y)
+    transform.origin.x = clamp(transform.origin.x, BOUNDS.position.x, \
+        BOUNDS.size.x)
+    transform.origin.y = clamp(transform.origin.y, BOUNDS.position.y, \
+        BOUNDS.size.y)
     
     # face towards the mouse
     look_at(get_global_mouse_position())
