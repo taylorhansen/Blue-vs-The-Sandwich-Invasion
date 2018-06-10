@@ -5,7 +5,7 @@
 [ext_resource path="res://theme/button_hover.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/button_pressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://theme/panel.tres" type="StyleBox" id=5]
-[ext_resource path="res://fonts/8-bit-wonder.tres" type="DynamicFont" id=6]
+[ext_resource path="res://theme/fonts/8-bit-wonder.tres" type="DynamicFont" id=6]
 
 [resource]
 

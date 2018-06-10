@@ -35,7 +35,7 @@ func _on_Quit_pressed():
     """
     Called when clicking the Quit button.
     """
-    get_tree().change_scene("res://main-menu/MainMenu.tscn")
+    get_tree().change_scene("res://menus/main/MainMenu.tscn")
     get_tree().paused = false
 
 func _on_Restart_pressed():

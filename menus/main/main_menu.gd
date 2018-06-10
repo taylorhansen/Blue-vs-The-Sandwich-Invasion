@@ -13,7 +13,7 @@ func _on_Upgrades_pressed():
     """
     Called when the upgrades button is pressed.
     """
-    get_tree().change_scene("res://ugprades-menu/UpgradesMenu.tscn")
+    get_tree().change_scene("res://menus/upgrades/UpgradesMenu.tscn")
 
 func _on_Quit_pressed():
     """

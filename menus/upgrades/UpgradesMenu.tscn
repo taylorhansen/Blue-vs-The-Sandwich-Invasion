@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://theme/theme.tres" type="Theme" id=1]
-[ext_resource path="res://main-menu/main_menu.gd" type="Script" id=2]
+[ext_resource path="res://menus/upgrades/upgrades_menu.gd" type="Script" id=2]
 
-[node name="MainMenu" type="Panel" index="0"]
+[node name="UpgradesMenu" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -19,6 +19,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+_sections_unfolded = [ "Rect", "Theme" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
 
@@ -71,14 +72,14 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "GAME"
+text = "UPGRADES"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer" index="1"]
+[node name="DashContainer" type="CenterContainer" parent="VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -95,30 +96,31 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 
-[node name="Start" type="Button" parent="VBoxContainer/CenterContainer2" index="0"]
+[node name="BuyDash" type="Button" parent="VBoxContainer/DashContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 32.0
-margin_right = 96.0
+margin_left = 5.0
+margin_right = 123.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
-enabled_focus_mode = 0
+enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Start"
+text = "Dash ( 500 )"
 flat = false
 align = 1
 
-[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer" index="2"]
+[node name="BackContainer" type="CenterContainer" parent="VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -135,55 +137,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 
-[node name="Upgrades" type="Button" parent="VBoxContainer/CenterContainer3" index="0"]
+[node name="Back" type="Button" parent="VBoxContainer/BackContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
-margin_right = 114.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Upgrades"
-flat = false
-align = 1
-
-[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 76.0
-margin_right = 128.0
-margin_bottom = 92.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
-
-[node name="Quit" type="Button" parent="VBoxContainer/CenterContainer4" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 41.0
-margin_right = 87.0
+margin_left = 38.0
+margin_right = 90.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -195,7 +156,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-text = "Quit"
+text = "Back"
 flat = false
 align = 1
 
@@ -221,36 +182,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ResetData" type="Button" parent="." index="2"]
+[connection signal="pressed" from="VBoxContainer/DashContainer/BuyDash" to="." method="_on_BuyDash_pressed"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 365.0
-margin_top = 490.0
-margin_right = 510.0
-margin_bottom = 510.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 0
-shortcut = null
-group = null
-text = "Reset Data"
-flat = false
-align = 1
-
-[connection signal="pressed" from="VBoxContainer/CenterContainer2/Start" to="." method="_on_Start_pressed"]
-
-[connection signal="pressed" from="VBoxContainer/CenterContainer3/Upgrades" to="." method="_on_Upgrades_pressed"]
-
-[connection signal="pressed" from="VBoxContainer/CenterContainer4/Quit" to="." method="_on_Quit_pressed"]
-
-[connection signal="pressed" from="ResetData" to="." method="_on_ResetData_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackContainer/Back" to="." method="_on_Back_pressed"]
 
 

@@ -22,7 +22,7 @@ func _on_Back_pressed():
     """
     Called when the back button is pressed.
     """
-    get_tree().change_scene("res://main-menu/MainMenu.tscn")
+    get_tree().change_scene("res://menus/main/MainMenu.tscn")
 
 func _update_buttons():
     """
