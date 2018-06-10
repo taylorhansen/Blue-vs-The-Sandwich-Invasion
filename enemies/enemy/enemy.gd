@@ -8,6 +8,9 @@ export(float) var MOVEMENT_SPEED = 100
 # player to target
 var player
 
+func _ready():
+    $AnimationPlayer.play("Walking")
+
 func _process(delta):
     # face the player
     look_at(player.global_position)
