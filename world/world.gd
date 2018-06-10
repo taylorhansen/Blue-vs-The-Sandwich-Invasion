@@ -10,6 +10,11 @@ func _ready():
     _update_wave()
     _update_lives()
 
+func _input(event):
+    # only process pause if we're not at the game over screen
+    if event.is_action_pressed("pause") and not $GameOver.visible:
+        _pause()
+
 func _on_Player_hit():
     """
     Called when the player is hit and loses a life.
@@ -55,6 +60,19 @@ func _game_over():
     # accumulate saved score
     global.points += score
     global.save_data()
+
+func _pause():
+    """
+    Initiates the pause/unpause sequence.
+    """
+    if $PauseMenu.visible:
+        # unpause
+        $PauseMenu.hide()
+        get_tree().paused = false
+    else:
+        # pause
+        $PauseMenu.popup_centered()
+        get_tree().paused = true
 
 func _update_score():
     """

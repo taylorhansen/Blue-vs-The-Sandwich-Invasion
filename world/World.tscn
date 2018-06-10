@@ -10,7 +10,7 @@
 [ext_resource path="res://world/background.png" type="Texture" id=8]
 [ext_resource path="res://world/camera.gd" type="Script" id=9]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 POINTS_PER_SANDWICH = 25
@@ -81,7 +81,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 175.0
-margin_bottom = 14.0
+margin_bottom = 12.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -96,9 +96,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 24.0
-margin_right = 150.0
-margin_bottom = 14.0
+margin_left = 33.0
+margin_right = 141.0
+margin_bottom = 12.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -118,9 +118,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 18.0
+margin_top = 16.0
 margin_right = 175.0
-margin_bottom = 36.0
+margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -135,9 +135,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 61.0
-margin_bottom = 18.0
+margin_left = 18.0
+margin_right = 64.0
+margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -158,9 +158,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 65.0
-margin_right = 167.0
-margin_bottom = 18.0
+margin_left = 68.0
+margin_right = 156.0
+margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -175,12 +175,172 @@ text = "Restart"
 flat = false
 align = 1
 
-[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+[node name="PauseMenu" type="PopupPanel" parent="." index="1"]
+
+pause_mode = 2
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 195.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+popup_exclusive = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 195.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 185.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/MarginContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 175.0
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Label" type="Label" parent="PauseMenu/MarginContainer/VBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 51.0
+margin_right = 123.0
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "PAUSED"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/MarginContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 16.0
+margin_right = 175.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="Quit" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "Quit"
+flat = false
+align = 1
+
+[node name="Restart" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 68.0
+margin_right = 156.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "Restart"
+flat = false
+align = 1
+
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 256, 256 )
 z_index = -2
 
-[node name="Enemies" type="Node" parent="." index="2"]
+[node name="Enemies" type="Node" parent="." index="3"]
 
 script = ExtResource( 4 )
 
@@ -191,7 +351,7 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="HUD" type="CanvasLayer" parent="." index="3"]
+[node name="HUD" type="CanvasLayer" parent="." index="4"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -315,14 +475,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Background" type="Sprite" parent="." index="4"]
+[node name="Background" type="Sprite" parent="." index="5"]
 
 z_index = -3
 texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Screen" type="Camera2D" parent="." index="5"]
+[node name="Screen" type="Camera2D" parent="." index="6"]
 
 pause_mode = 2
 anchor_mode = 0
@@ -362,6 +522,10 @@ autostart = false
 [connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 
