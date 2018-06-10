@@ -19,8 +19,7 @@ func _on_Player_hit():
     $Screen.shake()
     if lives <= 0:
         # game over sequence
-        $GameOver.popup_centered()
-        get_tree().paused = true
+        _game_over()
 
 func _on_Sandwich_fired():
     """
@@ -45,6 +44,16 @@ func _on_Restart_pressed():
     """
     get_tree().change_scene("res://world/World.tscn")
     get_tree().paused = false
+
+func _game_over():
+    """
+    Initiates the game over sequence.
+    """
+    $GameOver.popup_centered()
+    get_tree().paused = true
+    
+    # accumulate saved score
+    global.points += score
 
 func _update_score():
     """
