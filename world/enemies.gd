@@ -69,9 +69,11 @@ func _next_wave():
     """
     $SpawnTimer.start()
     wave += 1
+    # amount of enemies increases linearithmically
     to_spawn = int(wave * log(wave + 1) + 1)
     spawned = 0
     killed = 0
+    # SpawnTimer period decays exponentially
     $SpawnTimer.wait_time = 2.0 / wave
     print("spawn time: ", $SpawnTimer.wait_time, " to_spawn: ", to_spawn)
     emit_signal("wave_changed")

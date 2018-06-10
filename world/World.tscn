@@ -10,7 +10,7 @@
 [ext_resource path="res://world/background.png" type="Texture" id=8]
 [ext_resource path="res://world/camera.gd" type="Script" id=9]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -201,24 +201,26 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Lives" type="Control" parent="HUD" index="0"]
+[node name="Lives" type="Panel" parent="HUD" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 480.0
-margin_bottom = 480.0
+margin_top = 476.0
+margin_right = 137.0
+margin_bottom = 512.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
 
 [node name="HatBase" type="Sprite" parent="HUD/Lives" index="0"]
 
-position = Vector2( 20, 5 )
+position = Vector2( 20, 15 )
 rotation = -1.5708
 texture = ExtResource( 5 )
 __meta__ = {
@@ -232,7 +234,7 @@ texture = ExtResource( 6 )
 
 [node name="LivesText" type="Sprite" parent="HUD/Lives" index="1"]
 
-position = Vector2( 70, 5 )
+position = Vector2( 70, 15 )
 texture = ExtResource( 7 )
 
 [node name="LifeCounter" type="Label" parent="HUD/Lives" index="2"]
@@ -241,10 +243,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 109.0
-margin_top = -11.0
-margin_right = 123.0
-margin_bottom = 3.0
+margin_left = 108.0
+margin_right = 122.0
+margin_bottom = 14.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
