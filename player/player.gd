@@ -1,7 +1,7 @@
 extends Area2D
 
 # emitted when hit by an enemy
-signal hit(enemy)
+signal hit()
 
 # fireball scene
 const FIREBALL = preload("res://fireball/Fireball.tscn")
@@ -64,4 +64,7 @@ func _on_area_entered(area):
     Called when another area collides with this one.
     """
     if area.is_in_group("enemies"):
-        emit_signal("hit", area)
+        # player was hit by an enemy
+        emit_signal("hit")
+        # enemy also dies as a result
+        area.emit_signal("dead")

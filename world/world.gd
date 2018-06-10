@@ -1,11 +1,6 @@
 extends Node
 
-# enemy scene
-const ENEMY = preload("res://enemies/enemy/Enemy.tscn")
-
 const SCORE_PER_ENEMY = 25
-
-onready var player = $Player
 
 # current score
 var score = 0
@@ -14,43 +9,14 @@ var score = 0
 var lives = 3
 
 func _ready():
-    # initialize score label
     _update_score()
-    
-    # update the lives counter
+    _update_wave()
     _update_lives()
-    
-    # seed the random number generator
-    randomize()
 
-func _on_SpawnTimer_timeout():
-    # spawn an enemy
-    var enemy = ENEMY.instance()
-    
-    # set its position along the perimeter of the viewport
-    var pos
-    var bounds = get_viewport().size
-    var side = randi() % 4
-    if side == 0: # top
-        pos = Vector2(rand_range(0, bounds.x), 0)
-    elif side == 1: # right
-        pos = Vector2(0, rand_range(0, bounds.y))
-    elif side == 2: # bottom
-        pos = Vector2(rand_range(0, bounds.x), bounds.y)
-    elif side == 3: # left
-        pos = Vector2(bounds.x, rand_range(0, bounds.y))
-    enemy.global_position = pos
-    
-    # other initialization
-    enemy.player = player
-    enemy.connect("fired", self, "_on_Enemy_fired")
-    $Enemies.add_child(enemy)
-
-func _on_Player_hit(enemy):
+func _on_Player_hit():
     """
     Called when the player is hit and loses a life.
     """
-    enemy.queue_free()
     lives -= 1
     _update_lives()
     $Screen.shake()
@@ -69,18 +35,6 @@ func _on_Enemy_fired():
     # update score label
     _update_score()
 
-func _update_score():
-    """
-    Updates the score indicator in the HUD.
-    """
-    $HUD/Score.text = "Score: " + str(score)
-
-func _update_lives():
-    """
-    Updates the life indicator in the HUD.
-    """
-    $HUD/Lives/LifeCounter.text = str(lives)
-
 func _on_Quit_pressed():
     """
     Called when clicking the Quit button.
@@ -94,3 +48,22 @@ func _on_Restart_pressed():
     """
     get_tree().change_scene("res://world/World.tscn")
     get_tree().paused = false
+
+func _update_score():
+    """
+    Updates the score indicator in the HUD.
+    """
+    $HUD/Score.text = "Score: " + str(score)
+
+func _update_wave():
+    """
+    Updates the wave indicator in the HUD. Called when the current wave is
+    changed in the Enemies node.
+    """
+    $HUD/Wave.text = "Wave: " + str($Enemies.wave)
+
+func _update_lives():
+    """
+    Updates the life indicator in the HUD.
+    """
+    $HUD/Lives/LifeCounter.text = str(lives)

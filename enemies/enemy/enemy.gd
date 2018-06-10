@@ -1,6 +1,7 @@
 extends Area2D
 
 signal fired
+signal dead
 
 # movement speed in pixels/second
 export(float) var MOVEMENT_SPEED = 100
@@ -22,5 +23,11 @@ func _process(delta):
 func _on_fired():
     """
     Called when being hit by a fireball.
+    """
+    queue_free()
+
+func _on_dead():
+    """
+    Called when the enemy is now dead.
     """
     queue_free()

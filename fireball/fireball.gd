@@ -5,9 +5,6 @@ onready var max_frames = $Sprite.hframes * $Sprite.vframes
 # speed in pixels/second, must be set during initialization
 var speed = 0
 
-func _ready():
-    $Sprite
-
 func _process(delta):
     # move along the current direction
     move_local_x(speed * delta, true)
@@ -19,6 +16,7 @@ func _on_area_entered(area):
     # see if we killed an enemy with fire
     if area.is_in_group("enemies"):
         area.emit_signal("fired")
+        area.emit_signal("dead")
         queue_free()
 
 func _on_Timer_timeout():

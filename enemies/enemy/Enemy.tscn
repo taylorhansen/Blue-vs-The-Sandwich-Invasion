@@ -12,7 +12,7 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Enemy" type="Area2D" index="0" groups=[
+[node name="Enemy" type="Area2D" groups=[
 "enemies",
 ]]
 
@@ -79,6 +79,8 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Walking = ExtResource( 6 )
 blend_times = [  ]
+
+[connection signal="dead" from="." to="." method="_on_dead"]
 
 [connection signal="fired" from="." to="." method="_on_fired"]
 
