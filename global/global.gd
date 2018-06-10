@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_PATH = "user://save.json"
-const DEFAULT_DATA = { "points": 0 }
+const DEFAULT_DATA = { "points": 0, "upgrades": { "dash": false } }
 var _save_data = _load_save()
 
 var points setget set_points, get_points
@@ -11,7 +11,6 @@ func set_points(new_points):
     Sets the saved amount of points.
     """
     _save_data.points = new_points
-    _store_save()
 
 func get_points():
     """
@@ -19,9 +18,21 @@ func get_points():
     """
     return _save_data.points
 
+func unlock(upgrade):
+    """
+    Unlocks an upgrade.
+    """
+    _save_data.upgrades[upgrade] = true
+
+func is_unlocked(upgrade):
+    """
+    Checks whether a certain upgrade is unlocked.
+    """
+    return _save_data.upgrades[upgrade]
+
 func save_data():
     """
-    Saves all data. Normally this is done by default when modifying any save
+    Saves all data. Should be called after mutating the save data.
     data.
     """
     _store_save()
@@ -31,7 +42,6 @@ func reset_data():
     Resets all save data.
     """
     _save_data = DEFAULT_DATA
-    _store_save()
 
 func _ready():
     randomize()

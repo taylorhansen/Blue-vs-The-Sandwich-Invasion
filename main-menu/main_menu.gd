@@ -9,6 +9,12 @@ func _on_Start_pressed():
     """
     get_tree().change_scene("res://world/World.tscn")
 
+func _on_Upgrades_pressed():
+    """
+    Called when the upgrades button is pressed.
+    """
+    get_tree().change_scene("res://ugprades-menu/UpgradesMenu.tscn")
+
 func _on_Quit_pressed():
     """
     Called when the quit button is pressed.
@@ -21,6 +27,7 @@ func _on_ResetData_pressed():
     Called when the reset data button is pressed.
     """
     global.reset_data()
+    global.save_data()
     _update_points()
 
 func _update_points():

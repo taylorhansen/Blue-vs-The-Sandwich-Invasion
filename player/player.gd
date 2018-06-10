@@ -103,7 +103,8 @@ func _can_dash():
     """
     Checks whether or not the player is able to dash.
     """
-    return not _is_dashing and $DashCooldown.is_stopped()
+    return global.is_unlocked("dash") and not _is_dashing and \
+        $DashCooldown.is_stopped()
 
 func _dash():
     """

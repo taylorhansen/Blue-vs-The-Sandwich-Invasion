@@ -54,6 +54,7 @@ func _game_over():
     
     # accumulate saved score
     global.points += score
+    global.save_data()
 
 func _update_score():
     """
