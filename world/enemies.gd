@@ -2,7 +2,7 @@ extends Node
 
 signal wave_changed
 
-const ENEMY = preload("res://enemies/enemy/Enemy.tscn")
+const ENEMY = preload("res://enemies/sandwich/Sandwich.tscn")
 
 onready var player = get_parent().get_node("Player")
 
@@ -44,8 +44,8 @@ func _on_SpawnTimer_timeout():
     
     # other initialization
     enemy.player = player
-    enemy.connect("dead", self, "_on_Enemy_dead")
-    enemy.connect("fired", get_parent(), "_on_Enemy_fired")
+    enemy.connect("dead", self, "_on_enemy_dead")
+    enemy.connect("fired", get_parent(), "_on_Sandwich_fired")
     add_child(enemy)
     
     # update spawn counter
@@ -54,7 +54,7 @@ func _on_SpawnTimer_timeout():
         # current wave has finished spawning enemies
         $SpawnTimer.stop()
 
-func _on_Enemy_dead():
+func _on_enemy_dead():
     """
     Called when an enemy is killed.
     """

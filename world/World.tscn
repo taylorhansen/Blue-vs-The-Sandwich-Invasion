@@ -10,9 +10,10 @@
 [ext_resource path="res://world/background.png" type="Texture" id=8]
 [ext_resource path="res://world/camera.gd" type="Script" id=9]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
+POINTS_PER_SANDWICH = 25
 
 [node name="GameOver" type="PopupPanel" parent="." index="0"]
 
@@ -216,7 +217,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
 
 [node name="HatBase" type="Sprite" parent="HUD/Lives" index="0"]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyeye.tga-42e5fded4a47eeeaa8cc6adf59ba1ef1.stex"
+path="res://.import/base.tga-7fe7ac4b3f3ec72659de7b156422d962.stex"
 
 [deps]
 
-source_file="res://enemies/enemy/enemyeye.tga"
-source_md5="aeb9d460b6e92c18bbfc1cee4d1785b9"
+source_file="res://enemies/sandwich/base.tga"
+source_md5="88fec661ca9423abdc689f7355dffd06"
 
-dest_files=[ "res://.import/enemyeye.tga-42e5fded4a47eeeaa8cc6adf59ba1ef1.stex" ]
-dest_md5="a1355e84f993f4741147b23111bbf9cf"
+dest_files=[ "res://.import/base.tga-7fe7ac4b3f3ec72659de7b156422d962.stex" ]
+dest_md5="3506c5a1233377733ab08136cda632f7"
 
 [params]
 

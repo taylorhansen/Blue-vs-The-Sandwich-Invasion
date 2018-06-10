@@ -1,11 +1,8 @@
 extends Node
 
-const SCORE_PER_ENEMY = 25
+export(int) var POINTS_PER_SANDWICH = 25
 
-# current score
 var score = 0
-
-# amount of lives the player has
 var lives = 3
 
 func _ready():
@@ -25,12 +22,12 @@ func _on_Player_hit():
         $GameOver.popup_centered()
         get_tree().paused = true
 
-func _on_Enemy_fired():
+func _on_Sandwich_fired():
     """
-    Called when an enemy is "fired" or killed.
+    Called when a Sandwich enemy is "fired" or killed.
     """
     # increment score
-    score += SCORE_PER_ENEMY
+    score += POINTS_PER_SANDWICH
     
     # update score label
     _update_score()

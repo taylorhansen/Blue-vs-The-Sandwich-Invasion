@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyarm.tga-5978b279f4e6b0b8c3601ba9bc0c377d.stex"
+path="res://.import/olive.tga-3528e977c23da71d262a79176321e7c8.stex"
 
 [deps]
 
-source_file="res://enemies/enemy/enemyarm.tga"
-source_md5="86de480ebb67161fed456e0d4a1e8739"
+source_file="res://enemies/sandwich/olive.tga"
+source_md5="b732dc0bef21566f87ee3b700f2f7837"
 
-dest_files=[ "res://.import/enemyarm.tga-5978b279f4e6b0b8c3601ba9bc0c377d.stex" ]
-dest_md5="a2a17f7f6e309af34d894cf548eee64b"
+dest_files=[ "res://.import/olive.tga-3528e977c23da71d262a79176321e7c8.stex" ]
+dest_md5="39043eb44263e726b4642625f7e15477"
 
 [params]
 

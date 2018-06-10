@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemybase.tga-2f437e218a72174c2cfc9af7c7fc5f2e.stex"
+path="res://.import/arm.tga-dfd7cbdce603a3a48663e438c1415186.stex"
 
 [deps]
 
-source_file="res://enemies/enemy/enemybase.tga"
-source_md5="88fec661ca9423abdc689f7355dffd06"
+source_file="res://enemies/sandwich/arm.tga"
+source_md5="86de480ebb67161fed456e0d4a1e8739"
 
-dest_files=[ "res://.import/enemybase.tga-2f437e218a72174c2cfc9af7c7fc5f2e.stex" ]
-dest_md5="3506c5a1233377733ab08136cda632f7"
+dest_files=[ "res://.import/arm.tga-dfd7cbdce603a3a48663e438c1415186.stex" ]
+dest_md5="a2a17f7f6e309af34d894cf548eee64b"
 
 [params]
 
