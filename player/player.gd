@@ -45,7 +45,6 @@ func _process(delta):
     
     if _is_dashing:
         # decay the dash velocity
-        print(_velocity)
         _velocity = _velocity.normalized() * (_velocity.length() - DASH_DECAY * delta)
         if _velocity.length() < MOVEMENT_SPEED:
             # once it gets back down to movement speed, we're no longer dashing
