@@ -14,8 +14,11 @@ All scene files and scripts are distributed under the [MIT license](LICENSE).
 * Programmer: Taylor Hansen.
 
 ### Assets
-All art and sound assets (`.tga` and `.wav` files) are distributed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
+All art and sound assets (`.tga` and `.wav` files) are distributed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/) unless stated otherwise.
 * Artist: Tyler Latiolais.
+
+### Songs
+* "Cool Adventure Intro" by [Eric Matyas](http://soundimage.org/).
 
 ### Fonts
 * [8 Bit Wonder](https://www.dafont.com/8bit-wonder.font) by Joiro Hatgaya as freeware.

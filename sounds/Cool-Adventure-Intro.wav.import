@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cool-Adventure-Intro.wav-d1f4f98a8ef031eaf4ce713ef8787e58.sample"
+
+[deps]
+
+source_file="res://sounds/Cool-Adventure-Intro.wav"
+source_md5="e8b96534126137d571f020bec70d9298"
+
+dest_files=[ "res://.import/Cool-Adventure-Intro.wav-d1f4f98a8ef031eaf4ce713ef8787e58.sample" ]
+dest_md5="11631720092d42f0afe82f2717b4225a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
