@@ -1,6 +1,7 @@
 # Blue vs The Sandwich Invasion
 Entry for the [2018 Butterscotch Shenanijam](https://itch.io/bscotch2018).
 Made using the [Godot game engine](https://godotengine.org).
+The project on itch.io can be found [here](https://crazyguy108.itch.io/blue-vs-the-sandwich-invasion).
 
 ## Controls
 * WASD/Arrow keys: Move around on the screen.
