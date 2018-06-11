@@ -14,6 +14,7 @@ func _on_BuyDash_pressed():
     if not global.is_unlocked("dash") and global.points >= DASH_COST:
         # able to buy the upgrade
         global.points -= DASH_COST
+        _update_points()
         global.unlock("dash")
         global.save_data()
         $VBoxContainer/DashContainer/BuyDash.disabled = true
