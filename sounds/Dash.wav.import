@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dash.wav-ddb92b01110cb144898bb13aa0ca6d6c.sample"
+
+[deps]
+
+source_file="res://sounds/Dash.wav"
+source_md5="6b6c68fcf5f2ba9903768cecf9283b8f"
+
+dest_files=[ "res://.import/Dash.wav-ddb92b01110cb144898bb13aa0ca6d6c.sample" ]
+dest_md5="c4ee65c2a86b834e0c8d7eca82c845a3"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

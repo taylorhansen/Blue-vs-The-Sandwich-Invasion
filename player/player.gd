@@ -122,3 +122,4 @@ func _dash():
     # set an impulse for the dash
     _velocity = DASH_SPEED * transform.x.normalized()
     _is_dashing = true
+    $DashSound.play()

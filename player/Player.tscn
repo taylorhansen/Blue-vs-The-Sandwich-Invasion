@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/hatbase.tga" type="Texture" id=2]
@@ -7,13 +7,14 @@
 [ext_resource path="res://player/handleftidle.tga" type="Texture" id=5]
 [ext_resource path="res://player/animations/Hat.tres" type="Animation" id=6]
 [ext_resource path="res://player/animations/ShootFireball.tres" type="Animation" id=7]
+[ext_resource path="res://sounds/Dash.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 16.0
 
-[node name="Player" type="Area2D" groups=[
+[node name="Player" type="Area2D" index="0" groups=[
 "player",
 ]]
 
@@ -87,6 +88,14 @@ autostart = false
 [node name="FireballSound" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = null
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="DashSound" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 8 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
