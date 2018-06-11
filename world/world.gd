@@ -87,6 +87,7 @@ func _game_over():
     """
     Initiates the game over sequence.
     """
+    $Player.queue_free()
     $GameOver.popup_centered()
     get_tree().paused = true
     
