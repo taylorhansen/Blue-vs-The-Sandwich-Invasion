@@ -61,7 +61,7 @@ func _ready():
     randomize()
     
     # initialize audio stream player
-    audio.volume_db = -10
+    audio.volume_db = -15
     add_child(audio)
 
 func _notification(what):
