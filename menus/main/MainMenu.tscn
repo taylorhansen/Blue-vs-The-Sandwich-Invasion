@@ -4,7 +4,7 @@
 [ext_resource path="res://menus/main/main_menu.gd" type="Script" id=2]
 [ext_resource path="res://theme/styleboxempty.tres" type="StyleBox" id=3]
 
-[node name="MainMenu" type="Panel" index="0"]
+[node name="MainMenu" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -274,9 +274,9 @@ align = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/CenterContainer2/Start" to="." method="_play_hover"]
 
-[connection signal="pressed" from="VBoxContainer/CenterContainer2/Start" to="." method="_on_Start_pressed"]
-
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/Start" to="." method="_play_select"]
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/Start" to="." method="_on_Start_pressed"]
 
 [connection signal="mouse_entered" from="VBoxContainer/CenterContainer3/Upgrades" to="." method="_play_hover"]
 
@@ -286,9 +286,9 @@ align = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/CenterContainer4/Quit" to="." method="_play_hover"]
 
-[connection signal="pressed" from="VBoxContainer/CenterContainer4/Quit" to="." method="_on_Quit_pressed"]
-
 [connection signal="pressed" from="VBoxContainer/CenterContainer4/Quit" to="." method="_play_select"]
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer4/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="mouse_entered" from="ResetData" to="." method="_play_hover"]
 

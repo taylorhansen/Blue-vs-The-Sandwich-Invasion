@@ -3,7 +3,7 @@
 [ext_resource path="res://theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menus/upgrades/upgrades_menu.gd" type="Script" id=2]
 
-[node name="UpgradesMenu" type="Panel" index="0"]
+[node name="UpgradesMenu" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

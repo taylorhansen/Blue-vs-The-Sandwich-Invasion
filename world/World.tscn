@@ -10,14 +10,14 @@
 [ext_resource path="res://world/background.png" type="Texture" id=8]
 [ext_resource path="res://world/camera.gd" type="Script" id=9]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
+pause_mode = 2
 script = ExtResource( 1 )
 POINTS_PER_SANDWICH = 25
 
 [node name="GameOver" type="PopupPanel" parent="." index="0"]
 
-pause_mode = 2
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -177,7 +177,6 @@ align = 1
 
 [node name="PauseMenu" type="PopupPanel" parent="." index="1"]
 
-pause_mode = 2
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -337,11 +336,13 @@ align = 1
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
+pause_mode = 1
 position = Vector2( 256, 256 )
 z_index = -2
 
 [node name="Enemies" type="Node" parent="." index="3"]
 
+pause_mode = 1
 script = ExtResource( 4 )
 
 [node name="SpawnTimer" type="Timer" parent="Enemies" index="0"]
@@ -353,6 +354,7 @@ autostart = false
 
 [node name="HUD" type="CanvasLayer" parent="." index="4"]
 
+pause_mode = 1
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -484,7 +486,6 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Screen" type="Camera2D" parent="." index="6"]
 
-pause_mode = 2
 anchor_mode = 0
 rotating = false
 current = true
@@ -521,7 +522,6 @@ autostart = false
 
 [node name="MenuSounds" type="AudioStreamPlayer" parent="." index="7"]
 
-pause_mode = 2
 stream = null
 volume_db = -10.0
 autoplay = false
@@ -530,7 +530,6 @@ bus = "Master"
 
 [node name="PlayerHit" type="AudioStreamPlayer" parent="." index="8"]
 
-pause_mode = 2
 stream = null
 volume_db = -5.0
 autoplay = false
@@ -547,27 +546,27 @@ bus = "Master"
 
 [connection signal="mouse_entered" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_hover"]
 
-[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-
 [connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_select"]
+
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="mouse_entered" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_hover"]
 
-[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
-
 [connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_select"]
+
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 
 [connection signal="mouse_entered" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_hover"]
 
-[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_play_select"]
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="mouse_entered" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_hover"]
 
-[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
-
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_play_select"]
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 
