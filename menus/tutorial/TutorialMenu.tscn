@@ -4,7 +4,7 @@
 [ext_resource path="res://menus/tutorial/tutorial_menu.gd" type="Script" id=2]
 [ext_resource path="res://theme/styleboxempty.tres" type="StyleBox" id=3]
 
-[node name="TutorialMenu" type="Panel"]
+[node name="TutorialMenu" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -60,7 +60,8 @@ bbcode_text = "[center]TUTORIAL[/center]
 
 [center]WASD # Move[/center]
 [center]Click # Fireball[/center]
-[center]Space # Dash[/center]"
+[center]Space # Dash[/center]
+[center]Escape # Pause[/center]"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
@@ -69,7 +70,8 @@ text = "TUTORIAL
 
 WASD # Move
 Click # Fireball
-Space # Dash"
+Space # Dash
+Escape # Pause"
 scroll_active = false
 scroll_following = false
 selection_enabled = false
@@ -135,8 +137,8 @@ align = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/CenterContainer/Back" to="." method="_play_hover"]
 
-[connection signal="pressed" from="VBoxContainer/CenterContainer/Back" to="." method="_play_select"]
-
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Back" to="." method="_on_Back_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer/Back" to="." method="_play_select"]
 
 
