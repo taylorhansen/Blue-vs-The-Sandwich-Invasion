@@ -12,7 +12,8 @@ config_version=3
 
 config/name="Blue vs The Sandwich Invasion"
 run/main_scene="res://menus/main/MainMenu.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://logo.png"
+config/icon="res://logo.png"
 
 [autoload]
 
