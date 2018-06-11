@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=2]
 
 [ext_resource path="res://theme/button_normal.tres" type="StyleBox" id=1]
-[ext_resource path="res://theme/button_focus.tres" type="StyleBox" id=2]
+[ext_resource path="res://theme/styleboxempty.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/button_hover.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/button_pressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://theme/panel.tres" type="StyleBox" id=5]
@@ -800,9 +800,9 @@ ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
 ProgressBar/styles/bg = null
 ProgressBar/styles/fg = null
 ProjectSettingsEditor/styles/panel = null
-RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
-RichTextLabel/styles/focus = null
-RichTextLabel/styles/normal = null
+RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
+RichTextLabel/styles/focus = ExtResource( 2 )
+RichTextLabel/styles/normal = ExtResource( 2 )
 SpinBox/icons/updown = null
 TabContainer/colors/font_color_bg = Color( 0, 0, 0, 1 )
 TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )

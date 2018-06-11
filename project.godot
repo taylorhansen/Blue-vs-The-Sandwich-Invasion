@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="New Game Project"
+config/name="Blue vs The Sandwich Invasion"
 run/main_scene="res://menus/main/MainMenu.tscn"
 config/icon="res://icon.png"
 
