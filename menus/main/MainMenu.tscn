@@ -203,7 +203,48 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 
-[node name="Quit" type="Button" parent="VBoxContainer/CenterContainer4" index="0"]
+[node name="Tutorial" type="Button" parent="VBoxContainer/CenterContainer4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_right = 111.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Tutorial"
+flat = false
+align = 1
+
+[node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 134.0
+margin_right = 128.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Quit" type="Button" parent="VBoxContainer/CenterContainer5" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -284,11 +325,17 @@ align = 1
 
 [connection signal="pressed" from="VBoxContainer/CenterContainer3/Upgrades" to="." method="_on_Upgrades_pressed"]
 
-[connection signal="mouse_entered" from="VBoxContainer/CenterContainer4/Quit" to="." method="_play_hover"]
+[connection signal="mouse_entered" from="VBoxContainer/CenterContainer4/Tutorial" to="." method="_play_hover"]
 
-[connection signal="pressed" from="VBoxContainer/CenterContainer4/Quit" to="." method="_play_select"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer4/Tutorial" to="." method="_play_select"]
 
-[connection signal="pressed" from="VBoxContainer/CenterContainer4/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer4/Tutorial" to="." method="_on_Tutorial_pressed"]
+
+[connection signal="mouse_entered" from="VBoxContainer/CenterContainer5/Quit" to="." method="_play_hover"]
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer5/Quit" to="." method="_play_select"]
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer5/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="mouse_entered" from="ResetData" to="." method="_play_hover"]
 

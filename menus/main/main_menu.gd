@@ -15,6 +15,12 @@ func _on_Upgrades_pressed():
     """
     get_tree().change_scene("res://menus/upgrades/UpgradesMenu.tscn")
 
+func _on_Tutorial_pressed():
+    """
+    Called when the tutorial button is pressed.
+    """
+    get_tree().change_scene("res://menus/tutorial/TutorialMenu.tscn")
+
 func _on_Quit_pressed():
     """
     Called when the quit button is pressed.
